@@ -1,0 +1,95 @@
+#root {
+  margin: 0 auto;
+  padding: 2rem;
+  text-align: center;
+}
+
+table, th, td {
+  border: 1px solid white;
+  border-collapse: collapse;
+}
+
+.season {
+  color: #f9f9f9;
+  background-color: #242424;
+  width: 38px;
+  height: 26px;
+}
+
+.episode {
+  width: 38px;
+  height: 26px;
+}
+
+a {
+  cursor: pointer;
+}
+
+.excellent {
+  background-color: rgb(34, 113, 64);
+  color: white;
+}
+
+.great {
+  background-color: rgb(110, 170, 109);
+  color: black;
+}
+
+.good {
+  background-color: rgb(246, 211, 97);
+  color: black;
+}
+
+.average {
+  background-color: rgb(232, 117, 82);
+  color: black;
+}
+
+.crap {
+  background-color: rgb(187, 42, 65);
+  color: white;
+}
+
+.futurama .excellent{
+  background-color: #8A4198;
+}
+
+.futurama .great {
+  background-color: #008EA0;
+  color: black;
+}
+
+.futurama .good {
+  background-color: #84D7E1;
+  color: black;
+}
+.futurama .average {
+  background-color: #FF6348;
+  color: black;
+}
+
+.futurama .crap {
+  background-color: #C71000;
+  color: white;
+}
+
+.southpark .excellent{
+  background-color: #00B8C4;
+  color: white;
+}
+
+.southpark .great{
+  background-color: #55B949;
+}
+
+.southpark .good{
+  background-color: #FDE9C4;
+}
+
+.southpark .average{
+  background-color: #EE6325;
+}
+
+.southpark .crap{
+  background-color: #EE3253;
+}
