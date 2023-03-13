@@ -14,7 +14,8 @@ interface Episode {
 }
 
 function App() {
-    const [show, setShow] = useState('simpsons');
+    const queryParameters = new URLSearchParams(window.location.search);
+    const [show, setShow] = useState(queryParameters.get('show') ?? 'simpsons');
     const [seasons, setSeasons] = useState<Season[]>([]);
 
     useEffect(() => {
@@ -28,6 +29,8 @@ function App() {
     const getRatingClass = (rating: number) => {
         if (!rating)
             return '';
+        if (rating > 9.5)
+            return 'classic';
         if (rating > 8.4)
             return 'excellent';
         if (rating > 7.5)
@@ -50,40 +53,44 @@ function App() {
   return (
     <div className={"App " + show}>
 
-        <select
-            value={show}
-            onChange={e => setShow(e.target.value)}>
-            <option value="simpsons">The Simpsons</option>
-            <option value="futurama">Futurama</option>
-            <option value="southpark">South Park</option>
-            <option value="scrubs">Scrubs</option>
-            <option value="lost">Lost</option>
-        </select>
+        <div>
+            <select
+                value={show}
+                onChange={e => setShow(e.target.value)}>
+                <option value="bluey">Bluey</option>
+                <option value="simpsons">The Simpsons</option>
+                <option value="futurama">Futurama</option>
+                <option value="southpark">South Park</option>
+                <option value="scrubs">Scrubs</option>
+                <option value="lost">Lost</option>
+            </select>
 
-        <table>
-            <caption>Seasons</caption>
-            <tr>
-                <th></th>
+            <table>
+                <caption>Seasons</caption>
+                <tr>
+                    <th></th>
+                    {
+                        seasons.map((_, index) => <th className="season">{ index + 1 }</th>)
+                    }
+                </tr>
                 {
-                    seasons.map((_, index) => <th className="season">{ index + 1 }</th>)
+                    [...Array(maxEpisodeCount)].map((_, index) =>
+                        <tr>
+                            <td className="season">{index + 1}</td>
+                            {
+                                seasons.map(s => s.episodes[index]).map(e =>
+                                    <td className={"episode " + getRatingClass(e?.rating)}>
+                                        <a data-tooltip-id="episode-tooltip"
+                                           data-tooltip-html={getEpisodeTooltip(e)}>{e?.rating?.toFixed(1)}</a>
+                                    </td>
+                                )
+                            }
+                        </tr>
+                    )
                 }
-            </tr>
-            {
-                [...Array(maxEpisodeCount)].map((_, index) =>
-                    <tr>
-                        <td className="season">{index + 1}</td>
-                        {
-                            seasons.map(s => s.episodes[index]).map(e =>
-                                <td className={"episode " + getRatingClass(e?.rating)}>
-                                    <a data-tooltip-id="episode-tooltip"
-                                       data-tooltip-html={getEpisodeTooltip(e)}>{e?.rating?.toFixed(1)}</a>
-                                </td>
-                            )
-                        }
-                    </tr>
-                )
-            }
-        </table>
+            </table>
+        </div>
+
 
       <Tooltip id="episode-tooltip"/>
     </div>

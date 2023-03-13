@@ -1,7 +1,27 @@
 #root {
-  margin: 0 auto;
-  padding: 2rem;
   text-align: center;
+}
+
+.App {
+  display: flex;
+  place-content: center;
+  padding: 20px;
+}
+
+.simpsons {
+  background-color: #FFD90F;
+}
+
+.futurama {
+  background-color: #FF95A8;
+}
+
+.bluey {
+  background-color: #EDCE76;
+}
+
+.southpark {
+  background-color: #FFEEC3;
 }
 
 table, th, td {
@@ -23,6 +43,11 @@ table, th, td {
 
 a {
   cursor: pointer;
+}
+
+.classic {
+  background-color: rgb(34, 113, 64);
+  color: white;
 }
 
 .excellent {
@@ -73,17 +98,22 @@ a {
   color: white;
 }
 
-.southpark .excellent{
-  background-color: #00B8C4;
+.southpark .classic {
+  background-color: #EE3253;
   color: white;
 }
 
-.southpark .great{
+.southpark .excellent{
+  background-color: #4D7DBD;
+  color: white;
+}
+
+.southpark .great {
   background-color: #55B949;
 }
 
 .southpark .good{
-  background-color: #FDE9C4;
+  background-color: #EE6325;
 }
 
 .southpark .average{
@@ -91,5 +121,31 @@ a {
 }
 
 .southpark .crap{
-  background-color: #EE3253;
+  background-color: #EE6325;
+}
+
+.bluey .classic {
+  background-color: #CA4F4E;
+  color: white;
+}
+
+.bluey .excellent{
+  background-color: #3E3D65;
+  color: white;
+}
+
+.bluey .great{
+  background-color: #87C8F9;
+}
+
+.bluey .good{
+  background-color: #D4EDFE;
+}
+
+.bluey .average{
+  background-color: #EDCE76;
+}
+
+.bluey .crap{
+  background-color: #9696A2;
 }

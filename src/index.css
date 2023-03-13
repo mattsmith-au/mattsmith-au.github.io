@@ -3,9 +3,6 @@
   line-height: 1.8;
   font-size: 11pt;
 
-  /*background-color: #FF95A8;*/
-  background-color: #FFD90F;
-
   font-synthesis: none;
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
@@ -15,8 +12,4 @@
 
 body {
   margin: 0;
-  display: flex;
-  place-items: center;
-  min-width: 320px;
-  min-height: 100vh;
 }
